@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawad Web Page</title>
+    <style>
+    body{
+    background-color: rgb(255, 244, 244);
+    margin: 0%;
+    padding: 0%;
+}
+div.details{
+    width: 95%;
+    height: auto;
+    margin-left: 2.5%;
+    margin-top: 20%;
+    background-color: gray;
+    border-radius: 5px;
+    box-shadow: 3px -4px 5px black;
+    overflow: hidden;
+}
+img.jawad_img{
+    width: 40%;
+    height: auto;
+    margin-bottom: -1%;
+    box-shadow: 5px 1px 4px black;
+}
+img.jawad_img, div.show_text{
+    display: inline-block;
+}
+div.show_text{
+    color: rgb(255, 255, 255);
+    width: 40%;
+    height: auto;
+    background-color: rgba(47, 0, 255, 0.623);
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+    direction: rtl;
+    padding: 1%;
+    font-size: 0.6em;
+    box-shadow: 2px -3px 4px black;
+    border-radius: 3px;
+}
+img.jawad_img:hover{
+    filter: grayscale(40);
+}img.jawad_img:active{
+    opacity: 30%;
+}
+div.add_star{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 5%;
+    display: none;
+}
+img.off_star{
+    width: 8%;
+    margin: 3%;
+    height: auto;
+}
+div.all_grade{
+    width: 30%;
+    height: auto;
+    background: radial-gradient(rgb(0, 0, 255), rgba(3, 253, 136, 0));
+    color: rgb(255, 217, 0);
+    position: absolute;
+    left: 35%;
+    top: 3%;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 5px;
+}
+img.off_on{
+    width: 10%;
+    position: absolute;
+    position: fixed;
+    top: 55%;
+}img.off_on:active{
+    width: 9.9%;
+}
+    </style>
+</head>
+<body>
+<div class="details">
+<img src="jawad.jpg" alt="no picture" class="jawad_img">
+<div class="show_text">سلام کار بر عزیز در حال حاضر در حال باز دید از وبسایت جواد افشار هستید همان طورکه میدانید در حال حاضر این وب سایت هیچ کار برد تخنیکی ندارد این وب سایت صرفن به منظوری تست بروی گیتاب قرار گرفته است و از آنجای که گیتاب اجازه اجراشدن کد های بکند رو نمیده پس نمی توان وب سایت داینا میک ساخت از توجه شما سپاس </div>
+</div>
+<div class="add_star">
+<img src="off_star.ico" alt="no picture" class="off_star" id="one">
+<img src="off_star.ico" alt="no picture" class="off_star" id="tow">
+<img src="off_star.ico" alt="no picture" class="off_star" id="tre">
+<img src="off_star.ico" alt="no picture" class="off_star" id="for">
+<img src="off_star.ico" alt="no picture" class="off_star" id="five">
+</div>
+<div class="all_grade">000</div>
+<br>
+<img src="off.png" class="off_on">
+  <script>
+  var one_star = document.getElementById("one");
+var tow_star = document.getElementById("tow");
+var tre_star = document.getElementById("tre");
+var for_star = document.getElementById("for");
+var five_star = document.getElementById("five");
+var show_grade = document.querySelector(".all_grade");
+var jawad_carde = document.querySelector(".details");
+var off_on_key = document.querySelector(".off_on");
+var all_stars = document.querySelector(".add_star");
+// top is connection to html elements
+localStorage.removeItem("grade");
+// top is emove localstorage
+var o_n = 1;
+var o_t = 1;
+var o_tr = 1;
+var o_f = 1;
+var o_fi = 1;
+// top is hide on on hide stars
+function show_stars(){
+    jawad_carde.style.opacity = localStorage.getItem("grade")+"%";
+}
+
+// top is show in animation to add star
+one_star.addEventListener("click",
+function(e){
+    o_n++;
+    if(o_n % 2 ==0){
+        one_star.src = "on_star.png";
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade+15);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }else{
+        one_star.src = "off_star.ico";   
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade-15);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }
+    
+});
+
+tow_star.addEventListener("click",
+function(e){
+    o_t++;
+    if(o_t % 2 ==0){
+        tow_star.src = "on_star.png";
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade+15);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }else{
+        tow_star.src = "off_star.ico"; 
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade-15);
+        show_grade.innerHTML = localStorage.getItem("grade");  
+        show_stars();
+    }
+});
+
+tre_star.addEventListener("click",
+function(e){
+    o_tr++;
+    if(o_tr % 2 ==0){
+        tre_star.src = "on_star.png";
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade+15);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }else{
+        tre_star.src = "off_star.ico";   
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade-15);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }
+});
+
+for_star.addEventListener("click",
+function(e){
+    o_f++;
+    if(o_f % 2 ==0){
+        for_star.src = "on_star.png";
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade+25);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }else{
+        for_star.src = "off_star.ico";   
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade-25);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }
+});
+
+five_star.addEventListener("click",
+function(e){
+    o_fi++;
+    if(o_fi % 2 ==0){
+        five_star.src = "on_star.png";
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade+30);
+        show_grade.innerHTML = localStorage.getItem("grade");
+        show_stars();
+    }else{
+        five_star.src = "off_star.ico"; 
+        var after_grade = Number(localStorage.getItem("grade"));
+        localStorage.setItem("grade", after_grade-30);
+        show_grade.innerHTML = localStorage.getItem("grade");  
+        show_stars();
+    }
+});
+var o_f = 0;
+off_on_key.addEventListener("click",
+function(e){
+    o_f++;
+    if(o_f % 2 ==0){
+        off_on_key.src = "off.png";
+        all_stars.style.display ="none";
+        show_grade.style.display ="none";
+    }else{
+        off_on_key.src = "on.png";
+        all_stars.style.display ="block";
+        show_grade.style.display ="block";
+    }
+});
+  </script>
+</body>
+</html>
